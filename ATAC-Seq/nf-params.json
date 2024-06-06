@@ -1,0 +1,17 @@
+{
+    "input": "/bgfs/ialdiri/ATAC-Seq/Sox2_ATAC-Seq/sampleSheet.csv",
+    "outdir": "/bgfs/ialdiri/ATAC-Seq/Sox2_ATAC-Seq/outDir",
+    "fasta": "/bgfs/ialdiri/Genomes/mm39.fa.gz",
+    "gtf": "/bgfs/ialdiri/Genomes/mm39.ncbiRefSeq.gtf.gz",
+    "blacklist": "/bgfs/ialdiri/ATAC-Seq/mm39-release-112/mm10-blacklist.v2.liftover.mm39.bed",
+    "mito_name": "chrM",
+    "aligner": "bowtie2",
+    "save_reference": true,
+    "read_length": 150,
+    "macs_pvalue": 0.000010,
+    "macs_gsize": 2650000000,
+    "narrow_peak": true,
+    "skip_plot_profile": true,
+    "skip_plot_fingerprint": true,
+    "skip_deseq2_qc": true
+}

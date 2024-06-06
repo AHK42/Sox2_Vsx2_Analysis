@@ -1,0 +1,5 @@
+group,replicate,fastq_1,fastq_2,control
+SOX2_S1,1,RawData/WT_E14_5_C_R_Sox2_1_S1_R1_001.fastq.gz,RawData/WT_E14_5_C_R_Sox2_1_S1_R2_001.fastq.gz,SOX2_NB_S2
+SOX2_NB_S2,1,RawData/WT_E14_5_C_R_Sox2_NB_1_S2_R1_001.fastq.gz,RawData/WT_E14_5_C_R_Sox2_NB_1_S2_R2_001.fastq.gz,
+SOX2_S3,1,RawData/C_R-WT-E14.5-Sox2-Rep4-R1.fastq.gz,RawData/C_R-WT-E14.5-Sox2-Rep4-R2.fastq.gz,SOX2_NB_S4
+SOX2_NB_S4,1,RawData/C_R_WT_E14.5_NB_Rep4_R1.fastq.gz,RawData/C_R-WT-E14.5-NB-Rep4-R2.fastq.gz,

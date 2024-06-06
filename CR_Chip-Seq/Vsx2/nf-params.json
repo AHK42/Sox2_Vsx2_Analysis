@@ -1,0 +1,15 @@
+{
+    "gtf": "/bgfs/ialdiri/Genomes/mm39.ncbiRefSeq.gtf.gz",
+    "read_length": 150,
+    "multiqc_title": "Vsx2CRPluto",
+    "aligner": "bowtie2",
+    "narrow_peak": true,
+    "skip_plot_fingerprint": true,
+    "macs_pvalue": 1e-05,
+    "fasta": "/bgfs/ialdiri/Genomes/mm39.fa.gz",
+    "skip_plot_profile": true,
+    "blacklist": "/bgfs/ialdiri/Genomes/mm10-blacklist.v2.liftover.mm39.bed",
+    "macs_gsize": 2650000000,
+    "input": "/bgfs/ialdiri/CR/Chip-Seq/sample_data.csv",
+    "outdir": "/bgfs/ialdiri/CR/Chip-Seq/outDir" 
+  }

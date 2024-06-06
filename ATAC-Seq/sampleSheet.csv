@@ -1,0 +1,5 @@
+sample,fastq_1,fastq_2,replicate
+WT1,RawFiles/S2_WT_Retina_S1_R1_001.fastq.gz,RawFiles/S2_WT_Retina_S1_R2_001.fastq.gz,1
+WT2,RawFiles/S4_WT_Retina_S2_R1_001.fastq.gz,RawFiles/S4_WT_Retina_S2_R2_001.fastq.gz,1
+KO1,RawFiles/S6_SOX2KO_Retina_S3_R1_001.fastq.gz,RawFiles/S6_SOX2KO_Retina_S3_R2_001.fastq.gz,1
+KO2,RawFiles/S8_SOX2KO_Retina_S4_R1_001.fastq.gz,RawFiles/S8_SOX2KO_Retina_S4_R2_001.fastq.gz,1

@@ -1,0 +1,5 @@
+sample,fastq_1,fastq_2,antibody,control
+Vsx2_Sample1,RawFiles/1_095J_01A4UPitt_E14.5-Retina-rep1_Vsx2_mm_i87.fastq.gz,,Vsx2,Vsx2_Sample2
+Vsx2_Sample2,RawFiles/3_095L_01A4UPitt_E14.5-Retina-rep1_Input_mm_i89.fastq.gz,,,
+Vsx2_Sample3,RawFiles/2_095K_01A4UPitt_E14.5-Retina-rep2_Vsx2_mm_i88.fastq.gz,,Vsx2,Vsx2_Sample4
+Vsx2_Sample4,RawFiles/4_095M_01A4UPitt_E14.5-Retina-rep2_Input_mm_i90.fastq.gz,,,

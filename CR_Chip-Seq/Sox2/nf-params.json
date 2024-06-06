@@ -1,0 +1,18 @@
+{
+    "normalisation_mode": "CPM",
+    "skip_dt_qc": true,
+    "gtf": "/bgfs/ialdiri/Genomes/mm39.ncbiRefSeq.gtf.gz",
+    "multiqc_title": "Sox2CR",
+    "peakcaller": "macs2",
+    "skip_heatmaps": true,
+    "dt_calc_all_matrix": false,
+    "remove_mitochondrial_reads": true,
+    "consensus_peak_mode": "all",
+    "macs2_pvalue": 1e-05,
+    "fasta": "/bgfs/ialdiri/Genomes/mm39.fa.gz",
+    "mito_name": "chrM",
+    "macs_gsize": 2650000000,
+    "input": "/bgfs/ialdiri/CR/Sox2CR/sample_data.csv",
+    "blacklist": "/ihome/crc/install/genomics_nextflow/nf-core-cutandrun-3.2.2/workflow/assets/blacklists/mm39-blacklist.bed",
+    "dedup_target_reads": true
+  }
