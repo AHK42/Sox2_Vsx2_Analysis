@@ -38,76 +38,76 @@ VSX2_BAM_FILES=("Vsx2_Sample1.mLb.clN.sorted.bam" "Vsx2_Sample3.mLb.clN.sorted.b
 mkdir -p $SOX2_BIGWIG_DIR 
 mkdir -p $VSX2_BIGWIG_DIR
 
-# STEP 1: Generate BigWig files for each TF
-# Sox2
-for BAM in "${SOX2_BAM_FILES[@]}"; do
-   SAMPLE_NAME=$(basename "$BAM" | cut -d. -f1)
-   bamCoverage \
-       --bam "$SOX2_BAM_DIR/$BAM" \
-       --outFileName "$SOX2_BIGWIG_DIR/${SAMPLE_NAME}.bigWig" \
-       --binSize $WINDOW_SIZE \
-       --normalizeUsing RPGC \
-       --effectiveGenomeSize $CHROM_SIZE \
-       --ignoreForNormalization chrX \
-       --blackListFileName $BLACKLIST \
-       --numberOfProcessors max \
-       --verbose \
-       --extendReads
-done
+# # STEP 1: Generate BigWig files for each TF
+# # Sox2
+# for BAM in "${SOX2_BAM_FILES[@]}"; do
+#    SAMPLE_NAME=$(basename "$BAM" | cut -d. -f1)
+#    bamCoverage \
+#        --bam "$SOX2_BAM_DIR/$BAM" \
+#        --outFileName "$SOX2_BIGWIG_DIR/${SAMPLE_NAME}.bigWig" \
+#        --binSize $WINDOW_SIZE \
+#        --normalizeUsing RPGC \
+#        --effectiveGenomeSize $CHROM_SIZE \
+#        --ignoreForNormalization chrX \
+#        --blackListFileName $BLACKLIST \
+#        --numberOfProcessors max \
+#        --verbose \
+#        --extendReads
+# done
 
-# Vsx2 - no extend reads for ChIP data
-for BAM in "${VSX2_BAM_FILES[@]}"; do
-    SAMPLE_NAME=$(basename "$BAM" | cut -d. -f1)
-    bamCoverage \
-        --bam "$VSX2_BAM_DIR/$BAM" \
-        --outFileName "$VSX2_BIGWIG_DIR/${SAMPLE_NAME}.bigWig" \
-        --binSize $WINDOW_SIZE \
-        --normalizeUsing RPGC \
-        --effectiveGenomeSize $CHROM_SIZE \
-        --ignoreForNormalization chrX \
-        --blackListFileName $BLACKLIST \
-        --numberOfProcessors max \
-        --verbose
-done
+# # Vsx2 - no extend reads for ChIP data
+# for BAM in "${VSX2_BAM_FILES[@]}"; do
+#     SAMPLE_NAME=$(basename "$BAM" | cut -d. -f1)
+#     bamCoverage \
+#         --bam "$VSX2_BAM_DIR/$BAM" \
+#         --outFileName "$VSX2_BIGWIG_DIR/${SAMPLE_NAME}.bigWig" \
+#         --binSize $WINDOW_SIZE \
+#         --normalizeUsing RPGC \
+#         --effectiveGenomeSize $CHROM_SIZE \
+#         --ignoreForNormalization chrX \
+#         --blackListFileName $BLACKLIST \
+#         --numberOfProcessors max \
+#         --verbose
+# done
 
 # STEP 2: Use BigWig files to generate matrices and plot results
 # Define paths and files to BigWig Files
 SOX2_BIGWIG_FILES=("$SOX2_BIGWIG_DIR/SOX2_S1_R1.bigWig" "$SOX2_BIGWIG_DIR/SOX2_S3_R1.bigWig")
 VSX2_BIGWIG_FILES=("$VSX2_BIGWIG_DIR/VSX2_sample_1.bigWig" "$VSX2_BIGWIG_DIR/VSX2_sample_3.bigWig")
 
-# Recreate Sox2 Pluto Tornado Plot
-computeMatrix reference-point --referencePoint TSS -b 2000 -a 2000 \
-    -S "${VSX2_BIGWIG_FILES[@]}"  \
-    -R "$GENE_ANNOTATION" \
-    --binSize $WINDOW_SIZE \
-    -o sox2_pluto_matrix.gz \
-    --sortRegions descend \
-    --sortUsing mean \
-    --missingDataAsZero \
-    --verbose -p max --skipZeros --smartLabels
+# # Recreate Sox2 Pluto Tornado Plot
+# computeMatrix reference-point --referencePoint TSS -b 2000 -a 2000 \
+#     -S "${VSX2_BIGWIG_FILES[@]}"  \
+#     -R "$GENE_ANNOTATION" \
+#     --binSize $WINDOW_SIZE \
+#     -o sox2_pluto_matrix.gz \
+#     --sortRegions descend \
+#     --sortUsing mean \
+#     --missingDataAsZero \
+#     --verbose -p max --skipZeros --smartLabels
 
-plotHeatmap -m sox2_pluto_matrix.gz -out sox2_pluto_heatmap.png \
-    --colorList white,#3442ab \
-    --refPointLabel "TSS" --verbose \
-    -T "Sox2 Pluto Test Tornado Plot" \
-    --averageTypeSummaryPlot mean
+# plotHeatmap -m sox2_pluto_matrix.gz -out sox2_pluto_heatmap.png \
+#     --colorList white,#3442ab \
+#     --refPointLabel "TSS" --verbose \
+#     -T "Sox2 Pluto Test Tornado Plot" \
+#     --averageTypeSummaryPlot mean
 
-# Recreate Vsx2 Pluto Tornado Plot
-computeMatrix reference-point --referencePoint TSS -b 2000 -a 2000 \
-    -S "${VSX2_BIGWIG_FILES[@]}"  \
-    -R "$GENE_ANNOTATION" \
-    --binSize $WINDOW_SIZE \
-    -o vsx2_pluto_matrix.gz \
-    --sortRegions descend \
-    --sortUsing mean \
-    --missingDataAsZero \
-    --verbose -p max --skipZeros --smartLabels
+# # Recreate Vsx2 Pluto Tornado Plot
+# computeMatrix reference-point --referencePoint TSS -b 2000 -a 2000 \
+#     -S "${VSX2_BIGWIG_FILES[@]}"  \
+#     -R "$GENE_ANNOTATION" \
+#     --binSize $WINDOW_SIZE \
+#     -o vsx2_pluto_matrix.gz \
+#     --sortRegions descend \
+#     --sortUsing mean \
+#     --missingDataAsZero \
+#     --verbose -p max --skipZeros --smartLabels
 
-plotHeatmap -m vsx2_pluto_matrix.gz -out vsx2_pluto_heatmap.png \
-    --colorList white,#3442ab \
-    --refPointLabel "TSS" --verbose \
-    -T "Vsx2 Pluto Test Tornado Plot" \
-    --averageTypeSummaryPlot mean
+# plotHeatmap -m vsx2_pluto_matrix.gz -out vsx2_pluto_heatmap.png \
+#     --colorList white,#3442ab \
+#     --refPointLabel "TSS" --verbose \
+#     -T "Vsx2 Pluto Test Tornado Plot" \
+#     --averageTypeSummaryPlot mean
 
 # Create Tornado Plot with different peak files
 computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
@@ -167,3 +167,4 @@ plotProfile -m vsx2_binding_matrix.gz \
 
  plotProfile -m vsx2_binding_matrix.gz \
  -out vsx2_signnal.png \
+

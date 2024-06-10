@@ -57,8 +57,9 @@ bedtools intersect -a sox2_consensus_peaks.bed -b vsx2_consensus_peaks.bed > sox
 
 Subtract the files from each other to find peaks unique to each TF
 ```
-bedtools subtract -a sox2_consensus_peaks.bed -b vsx2_consensus_peaks.bed > sox2_unique_peaks.bed
-bedtools subtract -a vsx2_consensus_peaks.bed -b sox2_consensus_peaks.bed > vsx2_unique_peaks.bed
+bedtools intersect -wa -a sox2_consensus.bed -b vsx2_consensus.bed | uniq > sox2_vsx2_shared_peaks.bed 
+bedtools intersect -wa -a sox2_consensus.bed -b vsx2_consensus.bed -v | uniq > sox2_unique_peaks.bed 
+bedtools intersect -wa -a vsx2_consensus.bed -b sox2_consensus.bed -v | uniq > vsx2_unique_peaks.bed 
 ```
 
 Deactivate conda enviroment
