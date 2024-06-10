@@ -38,7 +38,7 @@ mkdir -p $BIGWIG_DIR
 #         --blackListFileName $BLACKLIST \
 #         --numberOfProcessors max \
 #         --verbose 
-done
+#done
 # Step 2: Generate matricies from bigWig files and then plot results
 # Define paths and files
 BIGWIG_FILES=("$BIGWIG_DIR/WT1_REP1.bigWig" "$BIGWIG_DIR/WT2_REP1.bigWig" "$BIGWIG_DIR/KO1_REP1.bigWig" "$BIGWIG_DIR/KO2_REP1.bigWig")
@@ -86,7 +86,7 @@ PEAKS_DIR="/bgfs/ialdiri/Sox2_Vsx2/Sox2_Vsx2_Peaks"
 
 computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
     -S "${BIGWIG_FILES[@]}" \
-    -R "$PEAKS_DIR/sox2_vsx2_shared.bed" "$PEAKS_DIR/sox2_unique.bed" "$PEAKS_DIR/vsx2_unique.bed" \
+    -R "$PEAKS_DIR/sox2_vsx2_shared_peaks.bed" "$PEAKS_DIR/sox2_unique_peaks.bed" "$PEAKS_DIR/vsx2_unique_peaks.bed" \
     --binSize $WINDOW_SIZE \
     -o diff_matrix.gz \
     --outFileSortedRegions sorted_regions.bed \

@@ -166,5 +166,4 @@ plotProfile -m vsx2_binding_matrix.gz \
  --yMin 0 --yMax 18
 
  plotProfile -m vsx2_binding_matrix.gz \
- -out vsx2_signnal.png \
-
+ -out vsx2_signnal.png 
