@@ -73,7 +73,7 @@ mkdir -p $VSX2_BIGWIG_DIR
 # STEP 2: Use BigWig files to generate matrices and plot results
 # Define paths and files to BigWig Files
 SOX2_BIGWIG_FILES=("$SOX2_BIGWIG_DIR/SOX2_S1_R1.bigWig" "$SOX2_BIGWIG_DIR/SOX2_S3_R1.bigWig")
-VSX2_BIGWIG_FILES=("$VSX2_BIGWIG_DIR/VSX2_sample_1.bigWig" "$VSX2_BIGWIG_DIR/VSX2_sample_3.bigWig")
+VSX2_BIGWIG_FILES=("$VSX2_BIGWIG_DIR/Vsx2_sample_1.bigWig" "$VSX2_BIGWIG_DIR/Vsx2_sample_3.bigWig")
 
 # # Recreate Sox2 Pluto Tornado Plot
 # computeMatrix reference-point --referencePoint TSS -b 2000 -a 2000 \
