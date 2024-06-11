@@ -3,8 +3,8 @@
 #SBATCH --job-name=Sox2_VSX2
 #SBATCH -c 16
 #SBATCH --mem=119g
-#SBATCH --output=SoxVsx%j.out 
-#SBATCH --error=SoxVsx%j.err         
+#SBATCH --output=SoxVsx.out 
+#SBATCH --error=SoxVsx.err         
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=ahk42@pitt.edu
 
@@ -73,7 +73,7 @@ mkdir -p $VSX2_BIGWIG_DIR
 # STEP 2: Use BigWig files to generate matrices and plot results
 # Define paths and files to BigWig Files
 SOX2_BIGWIG_FILES=("$SOX2_BIGWIG_DIR/SOX2_S1_R1.bigWig" "$SOX2_BIGWIG_DIR/SOX2_S3_R1.bigWig")
-VSX2_BIGWIG_FILES=("$VSX2_BIGWIG_DIR/Vsx2_Sample_1.bigWig" "$VSX2_BIGWIG_DIR/Vsx2_Sample_3.bigWig")
+VSX2_BIGWIG_FILES=("$VSX2_BIGWIG_DIR/Vsx2_Sample1.bigWig" "$VSX2_BIGWIG_DIR/Vsx2_Sample3.bigWig")
 
 # # Recreate Sox2 Pluto Tornado Plot
 # computeMatrix reference-point --referencePoint TSS -b 2000 -a 2000 \
