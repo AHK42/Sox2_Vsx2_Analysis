@@ -77,7 +77,7 @@ VSX2_BIGWIG_FILES=("$VSX2_BIGWIG_DIR/Vsx2_Sample1.bigWig" "$VSX2_BIGWIG_DIR/Vsx2
 
 # # Recreate Sox2 Pluto Tornado Plot
 # computeMatrix reference-point --referencePoint TSS -b 2000 -a 2000 \
-#     -S "${VSX2_BIGWIG_FILES[@]}"  \
+#     -S "${SOX2_BIGWIG_FILES[@]}"  \
 #     -R "$GENE_ANNOTATION" \
 #     --binSize $WINDOW_SIZE \
 #     -o sox2_pluto_matrix.gz \
@@ -111,7 +111,7 @@ VSX2_BIGWIG_FILES=("$VSX2_BIGWIG_DIR/Vsx2_Sample1.bigWig" "$VSX2_BIGWIG_DIR/Vsx2
 
 # Create Tornado Plot with different peak files
 computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
-    -S "${VSX2_BIGWIG_FILES[@]}" \
+    -S "${SOX2_BIGWIG_FILES[@]}" "${VSX2_BIGWIG_FILES[@]}" \
     -R "$PEAK_FILES_DIR/sox2_vsx2_shared_peaks.bed" "$PEAK_FILES_DIR/sox2_unique_peaks.bed" "$PEAK_FILES_DIR/vsx2_unique_peaks.bed" \
     --binSize $WINDOW_SIZE \
     -o sox2_vsx2_overlap_matrix.gz \
@@ -120,8 +120,8 @@ computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
     --missingDataAsZero \
     --verbose -p max --skipZeros --smartLabels
 
-plotHeatmap -m sox2_vsx2_overlap_matrix.gz -out mm39sox2_vsx2_overlap_heatmap.png \
-    --colorList white,#3442ab \
+plotHeatmap -m sox2_vsx2_overlap_matrix.gz -out sox2_vsx2_overlap_heatmap.png \
+    --colorMap "Blues" \
     --refPointLabel "center" --verbose \
     -T "Sox2 and Vsx2 Peaks" \
     --averageTypeSummaryPlot mean
@@ -143,7 +143,7 @@ plotProfile -m sox2_binding_matrix.gz \
  -out sox2_binding.png \
  --plotType heatmap \
  --colors RdBu_r \
- --yMin 0 --yMax 18
+ --yMin 0 --yMax 15
 
  plotProfile -m sox2_binding_matrix.gz \
  -out sox2_signal.png 
@@ -163,7 +163,7 @@ plotProfile -m vsx2_binding_matrix.gz \
  -out vsx2_binding.png \
  --plotType heatmap \
  --colors RdBu_r \
- --yMin 0 --yMax 18
+ --yMin 0 --yMax 15
 
  plotProfile -m vsx2_binding_matrix.gz \
- -out vsx2_signnal.png 
+ -out vsx2_signal.png 
