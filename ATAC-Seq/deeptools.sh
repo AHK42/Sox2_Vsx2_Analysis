@@ -77,7 +77,7 @@ computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
 plotHeatmap -m matrix.gz -out Sox2_ATAC_consensus_peak_heatmap.png \
     --colorMap Blues  \
     --refPointLabel "Center" --verbose \
-    -T "Sox2 ATAC KO with consensus peaks" \
+    -T "Sox2 ATAC KO With Consensus Peaks" \
     --averageTypeSummaryPlot mean 
 
 # Differential Chromatin Accessibility
@@ -103,12 +103,14 @@ PEAKS_DIR="/bgfs/ialdiri/Sox2_Vsx2/Sox2_Vsx2_Peaks"
 
 # Create Tornado Plots for ATAC w/ Sox2 and Non Sox2 Bound regions
 # Create files from bedtools intersect -v
+
+# Sox2 Bound
 WT_BIGWIG_FILES=("$BIGWIG_DIR/WT1_REP1.bigWig" "$BIGWIG_DIR/WT2_REP1.bigWig")
 ATAC_PEAKS_DIR=(/bgfs/ialdiri/ATAC-Seq/Sox2_ATAC-Seq/outDir/bowtie2/merged_library/macs2/narrow_peak)
 
 computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
     -S "${WT_BIGWIG_FILES[@]}" \
-    -R "$ATAC_PEAKS_DIR/sox2_vsx2_shared_peaks.bed" \
+    -R "$ATAC_PEAKS_DIR/Sox2_ATAC_WT_CR_bound.bed" \
     --binSize $WINDOW_SIZE \
     -o bound_matrix.gz \
     --outFileSortedRegions sorted_regions.bed \
@@ -126,7 +128,7 @@ plotHeatmap -m bound_matrix.gz -out Sox2_ATAC_WT_Bound_heatmap.png \
 # Unbound regions Sox2
 computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
     -S "${WT_BIGWIG_FILES[@]}" \
-    -R "$ATAC_PEAKS_DIR/sox2_vsx2_shared_peaks.bed" \
+    -R "$ATAC_PEAKS_DIR/Sox2_ATAC_WT_CR_bound.bed" \
     --binSize $WINDOW_SIZE \
     -o unbound_matrix.gz \
     --outFileSortedRegions sorted_regions.bed \
