@@ -80,13 +80,13 @@ VSX2_BIGWIG_FILES=("$VSX2_BIGWIG_DIR/Vsx2_Sample1.bigWig" "$VSX2_BIGWIG_DIR/Vsx2
 #     -S "${SOX2_BIGWIG_FILES[@]}"  \
 #     -R "$GENE_ANNOTATION" \
 #     --binSize $WINDOW_SIZE \
-#     -o sox2_pluto_matrix.gz \
+#     -o Sox2_pluto_matrix.gz \
 #     --sortRegions descend \
 #     --sortUsing mean \
 #     --missingDataAsZero \
 #     --verbose -p max --skipZeros --smartLabels
 
-# plotHeatmap -m sox2_pluto_matrix.gz -out sox2_pluto_heatmap.png \
+# plotHeatmap -m Sox2_pluto_matrix.gz -out Sox2_pluto_heatmap.png \
 #     --colorList white,#3442ab \
 #     --refPointLabel "TSS" --verbose \
 #     -T "Sox2 Pluto Test Tornado Plot" \
@@ -97,13 +97,13 @@ VSX2_BIGWIG_FILES=("$VSX2_BIGWIG_DIR/Vsx2_Sample1.bigWig" "$VSX2_BIGWIG_DIR/Vsx2
 #     -S "${VSX2_BIGWIG_FILES[@]}"  \
 #     -R "$GENE_ANNOTATION" \
 #     --binSize $WINDOW_SIZE \
-#     -o vsx2_pluto_matrix.gz \
+#     -o Vsx2_pluto_matrix.gz \
 #     --sortRegions descend \
 #     --sortUsing mean \
 #     --missingDataAsZero \
 #     --verbose -p max --skipZeros --smartLabels
 
-# plotHeatmap -m vsx2_pluto_matrix.gz -out vsx2_pluto_heatmap.png \
+# plotHeatmap -m Vsx2_pluto_matrix.gz -out Vsx2_pluto_heatmap.png \
 #     --colorList white,#3442ab \
 #     --refPointLabel "TSS" --verbose \
 #     -T "Vsx2 Pluto Test Tornado Plot" \
@@ -112,58 +112,58 @@ VSX2_BIGWIG_FILES=("$VSX2_BIGWIG_DIR/Vsx2_Sample1.bigWig" "$VSX2_BIGWIG_DIR/Vsx2
 # Create Tornado Plot with different peak files
 computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
     -S "${SOX2_BIGWIG_FILES[@]}" "${VSX2_BIGWIG_FILES[@]}" \
-    -R "$PEAK_FILES_DIR/sox2_vsx2_shared_peaks.bed" "$PEAK_FILES_DIR/sox2_unique_peaks.bed" "$PEAK_FILES_DIR/vsx2_unique_peaks.bed" \
+    -R "$PEAK_FILES_DIR/Sox2_Vsx2_9k_shared_peaks.bed" "$PEAK_FILES_DIR/Sox2_unique_peaks.bed" "$PEAK_FILES_DIR/E14.5_Vsx2_peaks_9k.bed" \
     --binSize $WINDOW_SIZE \
-    -o sox2_vsx2_overlap_matrix.gz \
+    -o Sox2_Vsx2_overlap_9k_matrix.gz \
     --sortRegions descend \
     --sortUsing mean \
     --missingDataAsZero \
     --verbose -p max --skipZeros --smartLabels
 
-plotHeatmap -m sox2_vsx2_overlap_matrix.gz -out sox2_vsx2_overlap_heatmap.png \
+plotHeatmap -m Sox2_Vsx2_overlap_9k_matrix.gz -out Sox2_Vsx2_9k_overlap_heatmap.png \
     --colorMap "Blues" \
     --refPointLabel "center" --verbose \
-    -T "Sox2 and Vsx2 Peaks" \
+    -T "Sox2 and Vsx2 9k Peaks" \
     --averageTypeSummaryPlot mean
 
 # Genomic Occupancy and signal enrichment plots (profilePlots)
 
-# Sox2 Binding 
-computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
-    -S "${SOX2_BIGWIG_FILES[@]}"  \
-    -R "$PEAK_FILES_DIR/sox2_vsx2_shared_peaks.bed" "$PEAK_FILES_DIR/sox2_unique_peaks.bed" "$PEAK_FILES_DIR/vsx2_unique_peaks.bed" \
-    --binSize $WINDOW_SIZE \
-    -o sox2_binding_matrix.gz \
-    --sortRegions descend \
-    --sortUsing mean \
-    --missingDataAsZero \
-    --verbose -p max --skipZeros --smartLabels
+# # Sox2 Binding 
+# computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
+#     -S "${SOX2_BIGWIG_FILES[@]}"  \
+#     -R "$PEAK_FILES_DIR/Sox2_Vsx2_shared_peaks.bed" "$PEAK_FILES_DIR/Sox2_unique_peaks.bed" "$PEAK_FILES_DIR/Vsx2_unique_peaks.bed" \
+#     --binSize $WINDOW_SIZE \
+#     -o Sox2_binding_matrix.gz \
+#     --sortRegions descend \
+#     --sortUsing mean \
+#     --missingDataAsZero \
+#     --verbose -p max --skipZeros --smartLabels
 
-plotProfile -m sox2_binding_matrix.gz \
- -out sox2_binding.png \
- --plotType heatmap \
- --colors RdBu_r \
- --yMin 0 --yMax 15
+# plotProfile -m Sox2_binding_matrix.gz \
+#  -out Sox2_binding.png \
+#  --plotType heatmap \
+#  --colors RdBu_r \
+#  --yMin 0 --yMax 15
 
- plotProfile -m sox2_binding_matrix.gz \
- -out sox2_signal.png 
+#  plotProfile -m Sox2_binding_matrix.gz \
+#  -out Sox2_signal.png 
  
- # Vsx2 Binding 
-computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
-    -S "${VSX2_BIGWIG_FILES[@]}" \
-    -R "$PEAK_FILES_DIR/sox2_vsx2_shared_peaks.bed" "$PEAK_FILES_DIR/sox2_unique_peaks.bed" "$PEAK_FILES_DIR/vsx2_unique_peaks.bed" \
-    --binSize $WINDOW_SIZE \
-    -o vsx2_binding_matrix.gz \
-    --sortRegions descend \
-    --sortUsing mean \
-    --missingDataAsZero \
-    --verbose -p max --skipZeros --smartLabels
+#  # Vsx2 Binding 
+# computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
+#     -S "${VSX2_BIGWIG_FILES[@]}" \
+#     -R "$PEAK_FILES_DIR/Sox2_Vsx2_shared_peaks.bed" "$PEAK_FILES_DIR/Sox2_unique_peaks.bed" "$PEAK_FILES_DIR/Vsx2_unique_peaks.bed" \
+#     --binSize $WINDOW_SIZE \
+#     -o Vsx2_binding_matrix.gz \
+#     --sortRegions descend \
+#     --sortUsing mean \
+#     --missingDataAsZero \
+#     --verbose -p max --skipZeros --smartLabels
 
-plotProfile -m vsx2_binding_matrix.gz \
- -out vsx2_binding.png \
- --plotType heatmap \
- --colors RdBu_r \
- --yMin 0 --yMax 15
+# plotProfile -m Vsx2_binding_matrix.gz \
+#  -out Vsx2_binding.png \
+#  --plotType heatmap \
+#  --colors RdBu_r \
+#  --yMin 0 --yMax 15
 
- plotProfile -m vsx2_binding_matrix.gz \
- -out vsx2_signal.png 
+#  plotProfile -m Vsx2_binding_matrix.gz \
+#  -out Vsx2_signal.png 
