@@ -86,7 +86,7 @@ PEAKS_DIR="/bgfs/ialdiri/Sox2_Vsx2/Sox2_Vsx2_Peaks"
 
 computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
     -S "${BIGWIG_FILES[@]}" \
-    -R "$PEAKS_DIR/Sox2_Vsx2_9k_shared_peaks.bed" "$PEAKS_DIR/Sox2_unique_peaks.bed" "$PEAKS_DIR/E14.5_Vsx2_peaks_9k.bed" \
+    -R "$PEAKS_DIR/Sox2_Vsx2_9k_shared_peaks.bed" "$PEAKS_DIR/Sox2_unique_peaks.bed" "$PEAKS_DIR/E14.5_Vsx2_unique_9k_peaks.bed" \
     --binSize $WINDOW_SIZE \
     -o diff_9k_matrix.gz \
     --outFileSortedRegions sorted_regions.bed \

@@ -112,7 +112,7 @@ VSX2_BIGWIG_FILES=("$VSX2_BIGWIG_DIR/Vsx2_Sample1.bigWig" "$VSX2_BIGWIG_DIR/Vsx2
 # Create Tornado Plot with different peak files
 computeMatrix reference-point --referencePoint center -b 2000 -a 2000 \
     -S "${SOX2_BIGWIG_FILES[@]}" "${VSX2_BIGWIG_FILES[@]}" \
-    -R "$PEAK_FILES_DIR/Sox2_Vsx2_9k_shared_peaks.bed" "$PEAK_FILES_DIR/Sox2_unique_peaks.bed" "$PEAK_FILES_DIR/E14.5_Vsx2_peaks_9k.bed" \
+    -R "$PEAK_FILES_DIR/Sox2_Vsx2_9k_shared_peaks.bed" "$PEAK_FILES_DIR/Sox2_unique_peaks.bed" "$PEAK_FILES_DIR/E14.5_Vsx2_unique_9k_peaks.bed" \
     --binSize $WINDOW_SIZE \
     -o Sox2_Vsx2_overlap_9k_matrix.gz \
     --sortRegions descend \
