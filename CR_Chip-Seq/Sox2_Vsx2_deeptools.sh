@@ -1,5 +1,5 @@
 #!/bin/bash 
-#SBATCH -t 08:00:00
+#SBATCH -t 01:00:00
 #SBATCH --job-name=Sox2_VSX2
 #SBATCH -c 16
 #SBATCH --mem=119g

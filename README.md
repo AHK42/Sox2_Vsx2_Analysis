@@ -5,7 +5,7 @@ Each experiment folder contains the scripts that were used and a "Plots" folder 
 
 ## Software:
 - [`nfcore/atacseq`](https://nf-co.re/atacseq/2.0) (v2.0)
-- [`nfcore/chipseq`]((https://nf-co.re/cutandrun/3.2.2)) (v3.2.2)
+- [`nfcore/chipseq`](https://nf-co.re/cutandrun/3.2.2) (v3.2.2)
 - [`bedtools`](https://bedtools.readthedocs.io/en/latest/#) (v2.31.0)
 - [`deeptools`](https://deeptools.readthedocs.io/en/3.5.1/content/list_of_tools.html) (v3.5.1)
 
